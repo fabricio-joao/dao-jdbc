@@ -13,7 +13,7 @@ public class DB {
 
 	private static Connection conexao = null;
 
-	public static Connection pegarConexao() {
+	public static Connection getConection() {
 		if (conexao == null) {
 			try {
 				Properties props = carregarDados();
@@ -26,7 +26,7 @@ public class DB {
 		return conexao;
 	}
 
-	public static void fecharConexao() {
+	public static void closeConexao() {
 		if (conexao != null) {
 			try {
 				conexao.close();
@@ -49,7 +49,7 @@ public class DB {
 	}
 
 	// metodo para fechar statements
-	public static void fecharStatements(Statement st) {
+	public static void closeStatements(Statement st) {
 		if (st != null) {
 			try {
 				st.close();
@@ -60,7 +60,7 @@ public class DB {
 	}
 
 	// metodo para fechar ResultSet
-	public static void fecharResultSet(ResultSet rs) {
+	public static void closeResultSet(ResultSet rs) {
 		if (rs != null) {
 			try {
 				rs.close();
